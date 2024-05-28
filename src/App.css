@@ -27,6 +27,10 @@
 }
 
 #root-layout {
+  textarea {
+    resize: none;
+  }
+
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -35,7 +39,11 @@
 
   .env-section,
   .ticket-section,
-  .webdc-section {
+  .webdc-section,
+  .new-webdc-section,
+  .webdc-ticket-section,
+  .ticket-modify-section,
+  .webdc-modify-section {
     display: flex;
     flex-direction: column;
     gap: 8px;
