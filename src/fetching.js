@@ -1,4 +1,4 @@
-const url = 'http://localhost/v2/webdc';
+const url = 'http://localhost:80/v2/webdc';
 
 // ENV 파트
 export const createEnv = async (webdcSeq, payload) => {
