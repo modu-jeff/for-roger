@@ -3,7 +3,7 @@ const url = 'http://localhost:80/v2/webdc';
 // ENV 파트
 export const createEnv = async (webdcSeq, payload) => {
   console.log('createEnv', webdcSeq, payload);
-  console.log(JSON.stringify(payload));
+  console.log('payload is: ', JSON.stringify(payload));
   await fetch(`${url}/${webdcSeq}/env`, {
     method: 'POST',
     headers: {
@@ -16,7 +16,7 @@ export const createEnv = async (webdcSeq, payload) => {
 
 export const modifyEnv = async (webdcSeq, payload) => {
   console.log('modifyEnv', webdcSeq, payload);
-  console.log(JSON.stringify(payload));
+  console.log('payload is: ', JSON.stringify(payload));
   await fetch(`${url}/${webdcSeq}/env`, {
     method: 'PUT',
     headers: {
@@ -41,7 +41,7 @@ export const deleteEnv = async (webdcSeq) => {
 // TICKET 파트
 export const createTicket = async (webdcSeq, ticketSeq, payload) => {
   console.log('createTicket', webdcSeq, ticketSeq, payload);
-  console.log(JSON.stringify(payload));
+  console.log('payload is: ', JSON.stringify(payload));
   await fetch(`${url}/${webdcSeq}/ticket/${ticketSeq}`, {
     method: 'POST',
     headers: {
@@ -54,7 +54,7 @@ export const createTicket = async (webdcSeq, ticketSeq, payload) => {
 
 export const modifyTicket = async (webdcSeq, ticketSeq, payload) => {
   console.log('modifyTicket', webdcSeq, ticketSeq, payload);
-  console.log(JSON.stringify(payload));
+  console.log('payload is: ', JSON.stringify(payload));
   await fetch(`${url}/${webdcSeq}/ticket/${ticketSeq}`, {
     method: 'PUT',
     headers: {
@@ -80,7 +80,7 @@ export const deleteTicket = async (webdcSeq, ticketSeq) => {
 
 export const createWebdc = async (webdcSeq, payload) => {
   console.log('createWebdc', webdcSeq, payload);
-  console.log(JSON.stringify(payload));
+  console.log('payload is: ', JSON.stringify(payload));
   await fetch(`${url}/${webdcSeq}`, {
     method: 'POST',
     headers: {
@@ -93,7 +93,7 @@ export const createWebdc = async (webdcSeq, payload) => {
 
 export const modifyWebdc = async (webdcSeq, payload) => {
   console.log('modifyWebdc', webdcSeq, payload);
-  console.log(JSON.stringify(payload));
+  console.log('payload is: ', JSON.stringify(payload));
   await fetch(`${url}/${webdcSeq}`, {
     method: 'PUT',
     headers: {
