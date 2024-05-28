@@ -1,10 +1,51 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setEnvWebdcSeq, setEnvPayload } from '../stores/envStore';
 import { createEnv, modifyEnv, deleteEnv } from '../fetching';
 
 function EnvPart() {
   const dispatch = useDispatch();
+  const [isFetching, setIsFetching] = useState(false);
   const { envWebdcSeq, envWebdcPayload } = useSelector((state) => state.env);
+
+  const handleCreateEnv = async (webdcSeq, payload) => {
+    setIsFetching(true);
+    try {
+      await createEnv(webdcSeq, payload);
+      dispatch(setEnvWebdcSeq(0));
+      dispatch(setEnvPayload(''));
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsFetching(false);
+    }
+  };
+
+  const handleModifyEnv = async (webdcSeq, payload) => {
+    setIsFetching(true);
+    try {
+      await modifyEnv(webdcSeq, payload);
+      dispatch(setEnvWebdcSeq(0));
+      dispatch(setEnvPayload(''));
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsFetching(false);
+    }
+  };
+
+  const handleDeleteEnv = async (webdcSeq) => {
+    setIsFetching(true);
+    try {
+      await deleteEnv(webdcSeq);
+      dispatch(setEnvWebdcSeq(0));
+      dispatch(setEnvPayload(''));
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsFetching(false);
+    }
+  };
 
   return (
     <form>
@@ -27,31 +68,13 @@ function EnvPart() {
       <br />
       <br />
       <div>
-        <button
-          type="button"
-          onClick={async (e) => {
-            e.preventDefault();
-            await createEnv(envWebdcSeq, envWebdcPayload);
-          }}
-        >
+        <button type="button" disabled={isFetching} onClick={() => handleCreateEnv(envWebdcSeq, envWebdcPayload)}>
           POST 때리기
         </button>
-        <button
-          type="button"
-          onClick={async (e) => {
-            e.preventDefault();
-            await modifyEnv(envWebdcSeq, envWebdcPayload);
-          }}
-        >
+        <button type="button" disabled={isFetching} onClick={() => handleModifyEnv(envWebdcSeq, envWebdcPayload)}>
           PUT 때리기
         </button>
-        <button
-          type="button"
-          onClick={async (e) => {
-            e.preventDefault();
-            await deleteEnv(envWebdcSeq);
-          }}
-        >
+        <button type="button" disabled={isFetching} onClick={() => handleDeleteEnv(envWebdcSeq)}>
           DELETE 때리기
         </button>
       </div>
