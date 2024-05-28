@@ -21,41 +21,36 @@ function NewWebdcPart() {
   };
 
   return (
-    <form>
-      <span>payload section</span>
-      <br />
-      <label>
-        systemSeq:{' '}
+    <>
+      <form>
+        <div>payload section</div>
+        <div></div>
+
+        <label>systemSeq: </label>
         <input
           type="number"
           onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, systemSeq: Number(e.target.value) }))}
         />
-      </label>
-      <br />
-      <label>
-        parkinglotSeq:{' '}
+
+        <label>parkinglotSeq: </label>
         <input
           type="number"
           onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, parkinglotSeq: Number(e.target.value) }))}
         />
-      </label>
-      <br />
-      <label>
-        env:{' '}
+
+        <label>env: </label>
         <textarea
           rows="5"
           cols="30"
           onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, env: e.target.value }))}
         />
-      </label>
-      <br />
-      <br />
+      </form>
       <div>
         <button type="button" disabled={isFetching} onClick={() => handleCreateNewWebdc(newWebdcPayload)}>
           POST 때리기
         </button>
       </div>
-    </form>
+    </>
   );
 }
 

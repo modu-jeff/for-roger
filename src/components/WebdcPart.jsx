@@ -48,29 +48,25 @@ function WebdcPart() {
   };
 
   return (
-    <form>
-      <label>
-        WebdcSeq: <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
-      </label>
-      <br />
-      <span>payload section</span>
-      <br />
-      <label>
-        systemSeq:{' '}
+    <>
+      <form>
+        <label>WebdcSeq:</label>
+        <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+
+        <div>payload section</div>
+        <div></div>
+
+        <label>systemSeq: </label>
         <input
           type="number"
           onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, systemSeq: Number(e.target.value) }))}
         />
-      </label>
-      <br />
-      <label>
-        parkinglotSeq:{' '}
+        <label>parkinglotSeq: </label>
         <input
           type="number"
           onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, parkinglotSeq: Number(e.target.value) }))}
         />
-      </label>
-      <br />
+      </form>
       <div>
         <button type="button" disabled={isFetching} onClick={() => handleCreateWebdc(webdcSeq, webdcPayload)}>
           POST 때리기
@@ -82,7 +78,7 @@ function WebdcPart() {
           DELETE 때리기
         </button>
       </div>
-    </form>
+    </>
   );
 }
 export default WebdcPart;

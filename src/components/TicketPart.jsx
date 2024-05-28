@@ -51,40 +51,34 @@ function TicketPart() {
   };
 
   return (
-    <form>
-      <label>
-        WebdcSeq: <input type="number" onChange={(e) => dispatch(setTicketWebdcSeq(Number(e.target.value)))} />
-      </label>
-      <br />
-      <label htmlFor="">
-        TicketSeq: <input type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
-      </label>
-      <br />
-      <div>payload section</div>
-      <label>
-        discountId:{' '}
+    <>
+      <form>
+        <label>WebdcSeq:</label>
+        <input type="number" onChange={(e) => dispatch(setTicketWebdcSeq(Number(e.target.value)))} />
+
+        <label>TicketSeq:</label>
+        <input type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
+
+        <div>payload section</div>
+        <div></div>
+        <label>discountId: </label>
         <input
           type="text"
           onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, discountId: e.target.value }))}
         />
-      </label>
-      <br />
-      <label>
-        timeLimit:{' '}
+
+        <label>timeLimit: </label>
         <input
           type="text"
           onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, timeLimit: Number(e.target.value) }))}
         />
-      </label>
-      <br />
-      <label>
-        dDay:{' '}
+
+        <label>dDay: </label>
         <input
           type="text"
           onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, dDay: Number(e.target.value) }))}
         />
-      </label>
-      <br />
+      </form>
       <div>
         <button
           disabled={isFetching}
@@ -104,7 +98,7 @@ function TicketPart() {
           DELETE 때리기
         </button>
       </div>
-    </form>
+    </>
   );
 }
 export default TicketPart;

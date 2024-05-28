@@ -34,34 +34,29 @@ function WebdcModifyPart() {
   };
 
   return (
-    <form>
-      <label>
-        webdcSeq: <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
-      </label>
-      <br />
-      <span>payload section</span>
-      <br />
-      <label>
-        systemSeq:{' '}
+    <>
+      <form>
+        <label>webdcSeq:</label>
+        <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+
+        <div>payload section</div>
+        <div></div>
+
+        <label>systemSeq: </label>
         <input
           type="number"
           onChange={(e) =>
             dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, systemSeq: Number(e.target.value) }))
           }
         />
-      </label>
-      <br />
-      <label>
-        env:{' '}
+
+        <label>env: </label>
         <textarea
           cols="30"
           rows="5"
           onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, env: e.target.value }))}
         />
-      </label>
-
-      <br />
-      <br />
+      </form>
       <div>
         <button disabled={isFetching} type="button" onClick={() => handleChangeWebdc(webdcSeq, webdcModifyPayload)}>
           PUT 때리기
@@ -70,7 +65,7 @@ function WebdcModifyPart() {
           DELETE 때리기
         </button>
       </div>
-    </form>
+    </>
   );
 }
 

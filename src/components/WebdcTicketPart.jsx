@@ -22,30 +22,28 @@ function WebdcTicketPart() {
   };
 
   return (
-    <form>
-      <label>
-        webdcSeq: <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
-      </label>
-      <br />
-      <span>payload section</span>
-      <br />
-      <label>
-        tickets:{' '}
+    <>
+      <form>
+        <label>webdcSeq:</label>
+        <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+
+        <div>payload section</div>
+        <div></div>
+
+        <label>tickets: </label>
         <textarea
           cols="30"
           rows="5"
           placeholder="배열안에 객체 친구들"
           onChange={(e) => dispatch(setWebdcTicketPayload(e.target.value))}
         />
-      </label>
-      <br />
-      <br />
+      </form>
       <div>
         <button disabled={isFetching} type="button" onClick={() => handleCreateNewTicket(webdcSeq, webdcTicketPayload)}>
           POST 때리기
         </button>
       </div>
-    </form>
+    </>
   );
 }
 

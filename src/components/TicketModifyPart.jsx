@@ -43,47 +43,40 @@ function TicketModifyPart() {
   };
 
   return (
-    <form>
-      <label>
-        webdcSeq: <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
-      </label>
-      <br />
-      <label>
-        ticketSeq: <input type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
-      </label>
-      <br />
-      <span>payload section</span>
-      <br />
-      <label>
-        discountId:{' '}
+    <>
+      <form>
+        <label>webdcSeq:</label>
+        <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+
+        <label>ticketSeq:</label>
+        <input type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
+
+        <div>payload section</div>
+        <div></div>
+
+        <label>discountId: </label>
         <input
           type="text"
           onChange={(e) => {
             dispatch(setTicketModifyPayload({ ...ticketModifyPayload, discountId: e.target.value }));
           }}
         />
-      </label>
-      <br />
-      <label>
-        timeLimit:{' '}
+
+        <label>timeLimit: </label>
         <input
           type="number"
           onChange={(e) =>
             dispatch(setTicketModifyPayload({ ...ticketModifyPayload, timeLimit: Number(e.target.value) }))
           }
         />
-      </label>
-      <br />
-      <label>
-        dDay:{' '}
+
+        <label>dDay: </label>
         <input
           type="number"
           onChange={(e) => dispatch(setTicketModifyPayload({ ...ticketModifyPayload, dDay: Number(e.target.value) }))}
         />
-      </label>
-      <br />
-      <label>
-        report.reportMemo:{' '}
+
+        <label>report.reportMemo: </label>
         <input
           type="text"
           onChange={(e) =>
@@ -95,10 +88,8 @@ function TicketModifyPart() {
             )
           }
         />
-      </label>
-      <br />
-      <label>
-        report.runDt:{' '}
+
+        <label>report.runDt: </label>
         <input
           type="text"
           onChange={(e) =>
@@ -110,10 +101,8 @@ function TicketModifyPart() {
             )
           }
         />
-      </label>
-      <br />
-      <label>
-        report.failDt:{' '}
+
+        <label>report.failDt: </label>
         <input
           type="text"
           onChange={(e) =>
@@ -125,10 +114,8 @@ function TicketModifyPart() {
             )
           }
         />
-      </label>
-      <br />
-      <label>
-        report.reportDt:{' '}
+
+        <label>report.reportDt: </label>
         <input
           type="text"
           onChange={(e) =>
@@ -140,9 +127,7 @@ function TicketModifyPart() {
             )
           }
         />
-      </label>
-      <br />
-      <br />
+      </form>
       <div>
         <button
           type="button"
@@ -155,7 +140,7 @@ function TicketModifyPart() {
           DELETE 때리기
         </button>
       </div>
-    </form>
+    </>
   );
 }
 
