@@ -1,22 +1,15 @@
-import { useState } from 'react';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setWebdcSeq, setWebdcPayload } from './stores/webdcStore';
 import { setEnvWebdcSeq, setEnvPayload } from './stores/envStore';
+import { setTicketWebdcSeq, setTicketSeq, setTicketPayload } from './stores/ticketStore';
 import * as api from './fetching';
 
 function App() {
   const dispatch = useDispatch();
   const { webdcSeq, webdcPayload } = useSelector((state) => state.webdc);
   const { envWebdcSeq, envWebdcPayload } = useSelector((state) => state.env);
-
-  const [ticketWebdcSeq, setTicketWebdcSeq] = useState(0);
-  const [ticketSeq, setTicketSeq] = useState(0);
-  const [ticketPayload, setTicketPayload] = useState({
-    discountId: '',
-    timeLimit: 0,
-    dDay: 0,
-  });
+  const { ticketWebdcSeq, ticketSeq, ticketPayload } = useSelector((state) => state.ticket);
 
   return (
     <>
@@ -73,11 +66,11 @@ function App() {
       <h1>TICKET 파트</h1>
       <form>
         <label>
-          WebdcSeq: <input type="number" onChange={(e) => setTicketWebdcSeq(Number(e.target.value))} />
+          WebdcSeq: <input type="number" onChange={(e) => dispatch(setTicketWebdcSeq(Number(e.target.value)))} />
         </label>
         <br />
         <label htmlFor="">
-          TicketSeq: <input type="number" onChange={(e) => setTicketSeq(Number(e.target.value))} />
+          TicketSeq: <input type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
         </label>
         <br />
         <div>payload section</div>
@@ -85,12 +78,7 @@ function App() {
           discountId:{' '}
           <input
             type="text"
-            onChange={(e) =>
-              setTicketPayload((prev) => ({
-                ...prev,
-                discountId: e.target.value,
-              }))
-            }
+            onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, discountId: e.target.value }))}
           />
         </label>
         <br />
@@ -98,12 +86,7 @@ function App() {
           timeLimit:{' '}
           <input
             type="text"
-            onChange={(e) =>
-              setTicketPayload((prev) => ({
-                ...prev,
-                timeLimit: Number(e.target.value),
-              }))
-            }
+            onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, timeLimit: Number(e.target.value) }))}
           />
         </label>
         <br />
@@ -111,12 +94,7 @@ function App() {
           dDay:{' '}
           <input
             type="text"
-            onChange={(e) =>
-              setTicketPayload((prev) => ({
-                ...prev,
-                dDay: Number(e.target.value),
-              }))
-            }
+            onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, dDay: Number(e.target.value) }))}
           />
         </label>
         <br />
