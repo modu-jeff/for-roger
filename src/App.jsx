@@ -27,11 +27,7 @@ function App() {
       <h1>ENV 파트</h1>
       <form>
         <label>
-          WebdcSeq:{' '}
-          <input
-            type="number"
-            onChange={(e) => setEnvWebdcSeq(Number(e.target.value))}
-          />
+          WebdcSeq: <input type="number" onChange={(e) => setEnvWebdcSeq(Number(e.target.value))} />
         </label>
         <br />
         <br />
@@ -84,19 +80,11 @@ function App() {
       <h1>TICKET 파트</h1>
       <form>
         <label>
-          WebdcSeq:{' '}
-          <input
-            type="number"
-            onChange={(e) => setTicketWebdcSeq(Number(e.target.value))}
-          />
+          WebdcSeq: <input type="number" onChange={(e) => setTicketWebdcSeq(Number(e.target.value))} />
         </label>
         <br />
         <label htmlFor="">
-          TicketSeq:{' '}
-          <input
-            type="number"
-            onChange={(e) => setTicketSeq(Number(e.target.value))}
-          />
+          TicketSeq: <input type="number" onChange={(e) => setTicketSeq(Number(e.target.value))} />
         </label>
         <br />
         <div>payload section</div>
@@ -172,11 +160,7 @@ function App() {
       <h1>WEBDC 그 잡채</h1>
       <form>
         <label>
-          WebdcSeq:{' '}
-          <input
-            type="number"
-            onChange={(e) => setWebdcSeq(Number(e.target.value))}
-          />
+          WebdcSeq: <input type="number" onChange={(e) => setWebdcSeq(Number(e.target.value))} />
         </label>
         <br />
         <span>payload section</span>
