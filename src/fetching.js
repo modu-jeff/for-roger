@@ -8,6 +8,7 @@ export const createEnv = async (webdcSeq, payload) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
     body: JSON.stringify(payload),
   });
@@ -20,6 +21,7 @@ export const modifyEnv = async (webdcSeq, payload) => {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
     body: JSON.stringify(payload),
   });
@@ -31,6 +33,7 @@ export const deleteEnv = async (webdcSeq) => {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
   });
 };
@@ -43,6 +46,7 @@ export const createTicket = async (webdcSeq, ticketSeq, payload) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
     body: JSON.stringify(payload),
   });
@@ -55,6 +59,7 @@ export const modifyTicket = async (webdcSeq, ticketSeq, payload) => {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
     body: JSON.stringify(payload),
   });
@@ -66,6 +71,7 @@ export const deleteTicket = async (webdcSeq, ticketSeq) => {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
   });
 };
@@ -79,6 +85,7 @@ export const createWebdc = async (webdcSeq, payload) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
     body: JSON.stringify(payload),
   });
@@ -91,6 +98,7 @@ export const modifyWebdc = async (webdcSeq, payload) => {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
     body: JSON.stringify(payload),
   });
@@ -102,6 +110,7 @@ export const deleteWebdc = async (webdcSeq) => {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
+      credentials: 'include',
     },
   });
 };
