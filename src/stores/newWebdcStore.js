@@ -14,13 +14,15 @@ const initialState = {
 };
 
 const newWebdcReducer = createReducer(initialState, (builder) => {
-  builder.addCase(setNewWebdcPayload, (state, { payload }) =>
-    produce(state, (draft) => {
-      draft.newWebdcPayload.systemSeq = payload.systemSeq;
-      draft.newWebdcPayload.parkinglotSeq = payload.parkinglotSeq;
-      draft.newWebdcPayload.env = payload.env;
-    }),
-  );
+  builder
+    .addCase(setNewWebdcPayload, (state, { payload }) =>
+      produce(state, (draft) => {
+        draft.newWebdcPayload.systemSeq = payload.systemSeq;
+        draft.newWebdcPayload.parkinglotSeq = payload.parkinglotSeq;
+        draft.newWebdcPayload.env = payload.env;
+      }),
+    )
+    .addDefaultCase((state) => state);
 });
 
 export default newWebdcReducer;

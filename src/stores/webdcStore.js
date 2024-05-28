@@ -29,7 +29,8 @@ const webdcReducer = createReducer(initialState, (builder) => {
         draft.webdcPayload.parkinglotSeq = payload.parkinglotSeq;
         draft.webdcPayload.systemSeq = payload.systemSeq;
       }),
-    );
+    )
+    .addDefaultCase((state) => state);
 });
 
 export default webdcReducer;

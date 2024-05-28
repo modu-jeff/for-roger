@@ -39,7 +39,8 @@ const ticketReducer = createReducer(initialState, (builder) => {
         draft.ticketPayload.timeLimit = payload.timeLimit;
         draft.ticketPayload.dDay = payload.dDay;
       }),
-    );
+    )
+    .addDefaultCase((state) => state);
 });
 
 export default ticketReducer;
