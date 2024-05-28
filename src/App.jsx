@@ -2,16 +2,13 @@ import { useState } from 'react';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setWebdcSeq, setWebdcPayload } from './stores/webdcStore';
+import { setEnvWebdcSeq, setEnvPayload } from './stores/envStore';
 import * as api from './fetching';
 
 function App() {
   const dispatch = useDispatch();
   const { webdcSeq, webdcPayload } = useSelector((state) => state.webdc);
-
-  const [envWebdcSeq, setEnvWebdcSeq] = useState(0);
-  const [envPayload, setEnvPayload] = useState({
-    env: {},
-  });
+  const { envWebdcSeq, envWebdcPayload } = useSelector((state) => state.env);
 
   const [ticketWebdcSeq, setTicketWebdcSeq] = useState(0);
   const [ticketSeq, setTicketSeq] = useState(0);
@@ -26,7 +23,7 @@ function App() {
       <h1>ENV 파트</h1>
       <form>
         <label>
-          WebdcSeq: <input type="number" onChange={(e) => setEnvWebdcSeq(Number(e.target.value))} />
+          WebdcSeq: <input type="number" onChange={(e) => dispatch(setEnvWebdcSeq(Number(e.target.value)))} />
         </label>
         <br />
         <br />
@@ -34,10 +31,7 @@ function App() {
           env:{' '}
           <textarea
             onChange={(e) => {
-              setEnvPayload((prev) => ({
-                ...prev,
-                env: e.target.value,
-              }));
+              dispatch(setEnvPayload(e.target.value));
             }}
             rows="5"
             cols="30"
@@ -51,7 +45,7 @@ function App() {
             type="button"
             onClick={async (e) => {
               e.preventDefault();
-              await api.createEnv(envWebdcSeq, envPayload);
+              await api.createEnv(envWebdcSeq, envWebdcPayload);
             }}
           >
             POST 때리기
@@ -60,7 +54,7 @@ function App() {
             type="button"
             onClick={async (e) => {
               e.preventDefault();
-              await api.modifyEnv(envWebdcSeq, envPayload);
+              await api.modifyEnv(envWebdcSeq, envWebdcPayload);
             }}
           >
             PUT 때리기
