@@ -114,3 +114,81 @@ export const deleteWebdc = async (webdcSeq) => {
     },
   });
 };
+
+// webdc 신규 생성 파트
+export const createNewWebdc = async (payload) => {
+  console.log('createNewWebdc', payload);
+  console.log('payload is: ', JSON.stringify(payload));
+  await fetch(`${url}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      credentials: 'include',
+    },
+    body: JSON.stringify(payload),
+  });
+};
+
+// 상품 추가 파트
+export const createNewTicket = async (webdcSeq, payload) => {
+  console.log('createNewTicket', webdcSeq, payload);
+  console.log('payload is: ', JSON.stringify(payload));
+  await fetch(`${url}/${webdcSeq}/tickets`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      credentials: 'include',
+    },
+    body: JSON.stringify(payload),
+  });
+};
+
+// 상품 수정 및 삭제 파트
+export const modifyNewTicket = async (webdcSeq, ticketSeq, payload) => {
+  console.log('modifyTicket', webdcSeq, ticketSeq, payload);
+  console.log('payload is: ', JSON.stringify(payload));
+  await fetch(`${url}/${webdcSeq}/tickets/${ticketSeq}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      credentials: 'include',
+    },
+    body: JSON.stringify(payload),
+  });
+};
+
+export const deleteNewTicket = async (webdcSeq, ticketSeq) => {
+  console.log('deleteTicket', webdcSeq, ticketSeq);
+  await fetch(`${url}/${webdcSeq}/tickets/${ticketSeq}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      credentials: 'include',
+    },
+  });
+};
+
+// 장비사 변경 및 연동 삭제 파트
+export const changeWebdc = async (webdcSeq, payload) => {
+  console.log('changeWebdc', webdcSeq, payload);
+  console.log('payload is: ', JSON.stringify(payload));
+  await fetch(`${url}/${webdcSeq}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      credentials: 'include',
+    },
+    body: JSON.stringify(payload),
+  });
+};
+
+export const deleteWebdcParkinglot = async (webdcSeq) => {
+  console.log('deleteWebdcParkinglot', webdcSeq);
+  await fetch(`${url}/${webdcSeq}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      credentials: 'include',
+    },
+  });
+};
