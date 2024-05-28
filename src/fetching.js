@@ -1,4 +1,4 @@
-const url = 'https://adminapi-dev.modudev.cloud/v2/webdc';
+const url = 'http://localhost/v2/webdc';
 
 // ENV 파트
 export const createEnv = async (webdcSeq, payload) => {
