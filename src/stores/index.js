@@ -4,6 +4,7 @@ import envReducer from './envStore';
 import ticketReducer from './ticketStore';
 import newWebdcReducer from './newWebdcStore';
 import webdcTicketReducer from './webdcTicketStore';
+import ticketModifyReducer from './ticketModifyStore';
 
 const rootReducer = combineReducers({
   webdc: webdcReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   ticket: ticketReducer,
   newWebdc: newWebdcReducer,
   webdcTicket: webdcTicketReducer,
+  ticketModify: ticketModifyReducer,
 });
 
 const store = configureStore({
