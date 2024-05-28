@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setWebdcSeq, setWebdcPayload } from './stores/webdcStore';
 import * as api from './fetching';
 
 function App() {
+  const dispatch = useDispatch();
+  const { webdcSeq, webdcPayload } = useSelector((state) => state.webdc);
+
   const [envWebdcSeq, setEnvWebdcSeq] = useState(0);
   const [envPayload, setEnvPayload] = useState({
     env: {},
@@ -14,12 +19,6 @@ function App() {
     discountId: '',
     timeLimit: 0,
     dDay: 0,
-  });
-
-  const [webdcSeq, setWebdcSeq] = useState(0);
-  const [webdcPayload, setWebdcPayload] = useState({
-    systemSeq: 0,
-    parkinglotSeq: 0,
   });
 
   return (
@@ -160,7 +159,7 @@ function App() {
       <h1>WEBDC 그 잡채</h1>
       <form>
         <label>
-          WebdcSeq: <input type="number" onChange={(e) => setWebdcSeq(Number(e.target.value))} />
+          WebdcSeq: <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
         </label>
         <br />
         <span>payload section</span>
@@ -169,12 +168,7 @@ function App() {
           systemSeq:{' '}
           <input
             type="number"
-            onChange={(e) =>
-              setWebdcPayload((prev) => ({
-                ...prev,
-                systemSeq: Number(e.target.value),
-              }))
-            }
+            onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, systemSeq: Number(e.target.value) }))}
           />
         </label>
         <br />
@@ -182,12 +176,7 @@ function App() {
           parkinglotSeq:{' '}
           <input
             type="number"
-            onChange={(e) =>
-              setWebdcPayload((prev) => ({
-                ...prev,
-                parkinglotSeq: Number(e.target.value),
-              }))
-            }
+            onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, parkinglotSeq: Number(e.target.value) }))}
           />
         </label>
         <br />
