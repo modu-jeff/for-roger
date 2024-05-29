@@ -28,6 +28,7 @@ function NewWebdcPart() {
       <input
         id="systemSeq"
         type="number"
+        value={newWebdcPayload.systemSeq}
         onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, systemSeq: Number(e.target.value) }))}
       />
 
@@ -35,6 +36,7 @@ function NewWebdcPart() {
       <input
         id="parkinglotSeq"
         type="number"
+        value={newWebdcPayload.parkinglotSeq}
         onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, parkinglotSeq: Number(e.target.value) }))}
       />
 
@@ -43,6 +45,7 @@ function NewWebdcPart() {
         id="env"
         rows="5"
         cols="30"
+        value={newWebdcPayload.env}
         onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, env: e.target.value }))}
       />
       <div className="button-wrapper">

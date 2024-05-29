@@ -45,10 +45,20 @@ function TicketModifyPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">webdcSeq:</label>
-      <input id="webdcSeq" type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+      <input
+        id="webdcSeq"
+        type="number"
+        value={webdcSeq}
+        onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
+      />
 
       <label htmlFor="ticketSeq">ticketSeq:</label>
-      <input id="ticketSeq" type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
+      <input
+        id="ticketSeq"
+        type="number"
+        value={ticketSeq}
+        onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))}
+      />
 
       <div className="payload-title">payload section</div>
 
@@ -56,6 +66,7 @@ function TicketModifyPart() {
       <input
         id="discountId"
         type="text"
+        value={ticketModifyPayload.discountId}
         onChange={(e) => {
           dispatch(setTicketModifyPayload({ ...ticketModifyPayload, discountId: e.target.value }));
         }}
@@ -65,6 +76,7 @@ function TicketModifyPart() {
       <input
         id="timeLimit"
         type="number"
+        value={ticketModifyPayload.timeLimit}
         onChange={(e) =>
           dispatch(setTicketModifyPayload({ ...ticketModifyPayload, timeLimit: Number(e.target.value) }))
         }
@@ -74,6 +86,7 @@ function TicketModifyPart() {
       <input
         id="dDay"
         type="number"
+        value={ticketModifyPayload.dDay}
         onChange={(e) => dispatch(setTicketModifyPayload({ ...ticketModifyPayload, dDay: Number(e.target.value) }))}
       />
 
@@ -81,6 +94,7 @@ function TicketModifyPart() {
       <input
         id="report-reportMemo"
         type="text"
+        value={ticketModifyPayload.report.reportMemo}
         onChange={(e) =>
           dispatch(
             setTicketModifyPayload({
@@ -95,6 +109,7 @@ function TicketModifyPart() {
       <input
         id="report-runDt"
         type="text"
+        value={ticketModifyPayload.report.runDt}
         onChange={(e) =>
           dispatch(
             setTicketModifyPayload({
@@ -109,6 +124,7 @@ function TicketModifyPart() {
       <input
         id="report-failDt"
         type="text"
+        value={ticketModifyPayload.report.failDt}
         onChange={(e) =>
           dispatch(
             setTicketModifyPayload({
@@ -123,6 +139,7 @@ function TicketModifyPart() {
       <input
         id="report-reportDt"
         type="text"
+        value={ticketModifyPayload.report.reportDt}
         onChange={(e) =>
           dispatch(
             setTicketModifyPayload({

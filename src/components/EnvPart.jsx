@@ -50,7 +50,7 @@ function EnvPart() {
   return (
     <form>
       <label>WebdcSeq:</label>
-      <input type="number" onChange={(e) => dispatch(setEnvWebdcSeq(Number(e.target.value)))} />
+      <input value={envWebdcSeq} type="number" onChange={(e) => dispatch(setEnvWebdcSeq(Number(e.target.value)))} />
       <label>env: </label>
       <textarea
         onChange={(e) => {
@@ -59,6 +59,7 @@ function EnvPart() {
         rows="5"
         cols="30"
         type="text"
+        value={envWebdcPayload.env}
       />
       <div className="button-wrapper">
         <button

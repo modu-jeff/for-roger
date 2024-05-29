@@ -36,7 +36,12 @@ function WebdcModifyPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">webdcSeq:</label>
-      <input id="webdcSeq" type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+      <input
+        id="webdcSeq"
+        type="number"
+        value={webdcSeq}
+        onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
+      />
 
       <div className="payload-title">payload section</div>
 
@@ -44,6 +49,7 @@ function WebdcModifyPart() {
       <input
         id="systemSeq"
         type="number"
+        value={webdcModifyPayload.systemSeq}
         onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, systemSeq: Number(e.target.value) }))}
       />
 
@@ -52,6 +58,7 @@ function WebdcModifyPart() {
         id="env"
         cols="30"
         rows="5"
+        value={webdcModifyPayload.env}
         onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, env: e.target.value }))}
       />
       <div className="button-wrapper">

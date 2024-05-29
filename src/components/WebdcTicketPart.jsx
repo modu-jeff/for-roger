@@ -24,7 +24,12 @@ function WebdcTicketPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">webdcSeq:</label>
-      <input id="webdcSeq" type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+      <input
+        id="webdcSeq"
+        type="number"
+        value={webdcSeq}
+        onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
+      />
 
       <div className="payload-title">payload section</div>
 
@@ -34,6 +39,7 @@ function WebdcTicketPart() {
         cols="30"
         rows="5"
         placeholder="배열안에 객체 친구들"
+        value={webdcTicketPayload.tickets}
         onChange={(e) => dispatch(setWebdcTicketPayload(e.target.value))}
       />
       <div className="button-wrapper">
