@@ -80,6 +80,7 @@ function TicketPart() {
 
       <div className="button-wrapper">
         <button
+          className="post-button"
           disabled={isFetching}
           type="button"
           onClick={() => handleCreateTicket(ticketWebdcSeq, ticketSeq, ticketPayload)}
@@ -87,13 +88,19 @@ function TicketPart() {
           POST 때리기
         </button>
         <button
+          className="put-button"
           disabled={isFetching}
           type="button"
           onClick={() => handleModifyTicket(ticketWebdcSeq, ticketSeq, ticketPayload)}
         >
           PUT 때리기
         </button>
-        <button disabled={isFetching} type="button" onClick={() => handleDeleteTicket(ticketWebdcSeq, ticketSeq)}>
+        <button
+          className="delete-button"
+          disabled={isFetching}
+          type="button"
+          onClick={() => handleDeleteTicket(ticketWebdcSeq, ticketSeq)}
+        >
           DELETE 때리기
         </button>
       </div>

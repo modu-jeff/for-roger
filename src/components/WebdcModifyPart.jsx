@@ -55,10 +55,20 @@ function WebdcModifyPart() {
         onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, env: e.target.value }))}
       />
       <div className="button-wrapper">
-        <button disabled={isFetching} type="button" onClick={() => handleChangeWebdc(webdcSeq, webdcModifyPayload)}>
+        <button
+          className="put-button"
+          disabled={isFetching}
+          type="button"
+          onClick={() => handleChangeWebdc(webdcSeq, webdcModifyPayload)}
+        >
           PUT 때리기
         </button>
-        <button disabled={isFetching} type="button" onClick={() => handleDeleteWebdcParkinglot(webdcSeq)}>
+        <button
+          className="delete-button"
+          disabled={isFetching}
+          type="button"
+          onClick={() => handleDeleteWebdcParkinglot(webdcSeq)}
+        >
           DELETE 때리기
         </button>
       </div>

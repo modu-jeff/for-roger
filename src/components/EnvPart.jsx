@@ -61,13 +61,28 @@ function EnvPart() {
         type="text"
       />
       <div className="button-wrapper">
-        <button type="button" disabled={isFetching} onClick={() => handleCreateEnv(envWebdcSeq, envWebdcPayload)}>
+        <button
+          className="post-button"
+          type="button"
+          disabled={isFetching}
+          onClick={() => handleCreateEnv(envWebdcSeq, envWebdcPayload)}
+        >
           POST 때리기
         </button>
-        <button type="button" disabled={isFetching} onClick={() => handleModifyEnv(envWebdcSeq, envWebdcPayload)}>
+        <button
+          className="put-button"
+          type="button"
+          disabled={isFetching}
+          onClick={() => handleModifyEnv(envWebdcSeq, envWebdcPayload)}
+        >
           PUT 때리기
         </button>
-        <button type="button" disabled={isFetching} onClick={() => handleDeleteEnv(envWebdcSeq)}>
+        <button
+          className="delete-button"
+          type="button"
+          disabled={isFetching}
+          onClick={() => handleDeleteEnv(envWebdcSeq)}
+        >
           DELETE 때리기
         </button>
       </div>

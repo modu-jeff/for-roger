@@ -46,7 +46,12 @@ function NewWebdcPart() {
         onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, env: e.target.value }))}
       />
       <div className="button-wrapper">
-        <button type="button" disabled={isFetching} onClick={() => handleCreateNewWebdc(newWebdcPayload)}>
+        <button
+          className="post-button"
+          type="button"
+          disabled={isFetching}
+          onClick={() => handleCreateNewWebdc(newWebdcPayload)}
+        >
           POST 때리기
         </button>
       </div>

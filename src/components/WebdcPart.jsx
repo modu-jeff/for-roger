@@ -67,13 +67,28 @@ function WebdcPart() {
         onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, parkinglotSeq: Number(e.target.value) }))}
       />
       <div className="button-wrapper">
-        <button type="button" disabled={isFetching} onClick={() => handleCreateWebdc(webdcSeq, webdcPayload)}>
+        <button
+          className="post-button"
+          type="button"
+          disabled={isFetching}
+          onClick={() => handleCreateWebdc(webdcSeq, webdcPayload)}
+        >
           POST 때리기
         </button>
-        <button type="button" disabled={isFetching} onClick={() => handleModifyWebdc(webdcSeq, webdcPayload)}>
+        <button
+          className="put-button"
+          type="button"
+          disabled={isFetching}
+          onClick={() => handleModifyWebdc(webdcSeq, webdcPayload)}
+        >
           PUT 때리기
         </button>
-        <button type="button" disabled={isFetching} onClick={() => handleDeleteWebdc(webdcSeq)}>
+        <button
+          className="delete-button"
+          type="button"
+          disabled={isFetching}
+          onClick={() => handleDeleteWebdc(webdcSeq)}
+        >
           DELETE 때리기
         </button>
       </div>

@@ -11,37 +11,37 @@ function App() {
   return (
     <main id="root-layout">
       <section className="env-section">
-        <h1>1. ENV 파트</h1>
+        <h2 aria-label="ENV 파트">1. /webdc/:webdcSeq/env</h2>
         <EnvPart />
       </section>
 
-      <section className="ticket-section">
-        <h1>2. TICKET 파트</h1>
+      <section aria-label="TICKET 파트" className="ticket-section">
+        <h2>2. /webdc/:webdcSeq/ticket/:ticketSeq</h2>
         <TicketPart />
       </section>
 
-      <section className="webdc-section">
-        <h1>3. WEBDC 그 잡채</h1>
+      <section aria-label="WEBDC 그 잡채" className="webdc-section">
+        <h2>3. /webdc/:webdcSeq</h2>
         <WebdcPart />
       </section>
 
-      <section className="new-webdc-section">
-        <h1>4. 신규주차장 연동</h1>
+      <section aria-label="신규주차장 연동" className="new-webdc-section">
+        <h2>4. /webdc</h2>
         <NewWebdcPart />
       </section>
 
-      <section className="webdc-ticket-section">
-        <h1>5. 상품 추가</h1>
+      <section aria-label="상품 추가" className="webdc-ticket-section">
+        <h2>5. /webdc/:webdcSeq/tickets</h2>
         <WebdcTicketPart />
       </section>
 
-      <section className="ticket-modify-section">
-        <h1>6. 상품 수정 / 주차권 삭제</h1>
+      <section aria-label="상품 수정 / 주차권삭제" className="ticket-modify-section">
+        <h2>6. /webdc/:webdcSeq/tickets/:ticketSeq</h2>
         <TicketModifyPart />
       </section>
 
-      <section className="webdc-modify-section">
-        <h1>7. 장비사 변경 / 연동 삭제</h1>
+      <section aria-label="장비사변경 / 연동 삭제" className="webdc-modify-section">
+        <h2>7. /webdc/:webdcSeq (장비사변경/연동주차장 삭제)</h2>
         <WebdcModifyPart />
       </section>
     </main>

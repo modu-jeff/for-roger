@@ -37,7 +37,12 @@ function WebdcTicketPart() {
         onChange={(e) => dispatch(setWebdcTicketPayload(e.target.value))}
       />
       <div className="button-wrapper">
-        <button disabled={isFetching} type="button" onClick={() => handleCreateNewTicket(webdcSeq, webdcTicketPayload)}>
+        <button
+          className="post-button"
+          disabled={isFetching}
+          type="button"
+          onClick={() => handleCreateNewTicket(webdcSeq, webdcTicketPayload)}
+        >
           POST 때리기
         </button>
       </div>

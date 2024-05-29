@@ -134,13 +134,19 @@ function TicketModifyPart() {
       />
       <div className="button-wrapper">
         <button
+          className="put-button"
           type="button"
           disabled={isFetching}
           onClick={() => handleModifyNewTicket(webdcSeq, ticketSeq, ticketModifyPayload)}
         >
           PUT 때리기
         </button>
-        <button type="button" disabled={isFetching} onClick={() => handleDeleteNewTicket(webdcSeq, ticketSeq)}>
+        <button
+          className="delete-button"
+          type="button"
+          disabled={isFetching}
+          onClick={() => handleDeleteNewTicket(webdcSeq, ticketSeq)}
+        >
           DELETE 때리기
         </button>
       </div>
