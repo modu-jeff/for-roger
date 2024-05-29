@@ -8,7 +8,7 @@ export const setWebdcSeq = createAction(SET_WEBDC_SEQ);
 export const setWebdcTicketPayload = createAction(SET_WEBDC_TICKET_PAYLOAD);
 
 const initialState = {
-  webdcSeq: 0,
+  webdcSeq: '',
   webdcTicketPayload: {
     tickets: '',
   },

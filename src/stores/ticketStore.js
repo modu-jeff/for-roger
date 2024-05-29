@@ -12,12 +12,12 @@ export const setTicketPayload = createAction(SET_TICKET_PAYLOAD, (payload) => ({
 }));
 
 const initialState = {
-  ticketWebdcSeq: 0,
-  ticketSeq: 0,
+  ticketWebdcSeq: '',
+  ticketSeq: '',
   ticketPayload: {
     discountId: '',
-    timeLimit: 0,
-    dDay: 0,
+    timeLimit: '',
+    dDay: '',
   },
 };
 

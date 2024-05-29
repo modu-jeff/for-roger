@@ -10,10 +10,10 @@ export const setWebdcPayload = createAction(SET_WEBDC_PAYLOAD, (payload) => ({
 }));
 
 const initialState = {
-  webdcSeq: 0,
+  webdcSeq: '',
   webdcPayload: {
-    systemSeq: 0,
-    parkinglotSeq: 0,
+    systemSeq: '',
+    parkinglotSeq: '',
   },
 };
 

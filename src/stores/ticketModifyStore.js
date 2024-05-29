@@ -10,17 +10,17 @@ export const setTicketSeq = createAction(SET_TICKET_SEQ);
 export const setTicketModifyPayload = createAction(SET_TICKET_MODIFY_PAYLOAD, (payload) => ({ payload }));
 
 const initialState = {
-  webdcSeq: 0,
-  ticketSeq: 0,
+  webdcSeq: '',
+  ticketSeq: '',
   ticketModifyPayload: {
     discountId: '',
-    timeLimit: 0,
-    dDay: 0,
+    timeLimit: '',
+    dDay: '',
     report: {
       reportMemo: '',
-      runDt: null,
-      failDt: null,
-      reportDt: null,
+      runDt: '',
+      failDt: '',
+      reportDt: '',
     },
   },
 };

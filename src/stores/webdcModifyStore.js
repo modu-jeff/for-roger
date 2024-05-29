@@ -8,9 +8,9 @@ export const setWebdcSeq = createAction(SET_WEBDC_SEQ);
 export const setWebdcModifyPayload = createAction(SET_WEBDC_MODIFY_PAYLOAD, (payload) => ({ payload }));
 
 const initialState = {
-  webdcSeq: 0,
+  webdcSeq: '',
   webdcModifyPayload: {
-    systemSeq: 0,
+    systemSeq: '',
     env: '',
   },
 };

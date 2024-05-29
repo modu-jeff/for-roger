@@ -10,7 +10,7 @@ export const setEnvPayload = createAction(SET_ENV_PAYLOAD, (payload) => ({
 }));
 
 const initialState = {
-  envWebdcSeq: 0,
+  envWebdcSeq: '',
   envWebdcPayload: {
     env: '',
   },
