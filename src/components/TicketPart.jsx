@@ -51,35 +51,34 @@ function TicketPart() {
   };
 
   return (
-    <>
-      <form>
-        <label>WebdcSeq:</label>
-        <input type="number" onChange={(e) => dispatch(setTicketWebdcSeq(Number(e.target.value)))} />
+    <form>
+      <label>WebdcSeq:</label>
+      <input type="number" onChange={(e) => dispatch(setTicketWebdcSeq(Number(e.target.value)))} />
 
-        <label>TicketSeq:</label>
-        <input type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
+      <label>TicketSeq:</label>
+      <input type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
 
-        <div>payload section</div>
-        <div></div>
-        <label>discountId: </label>
-        <input
-          type="text"
-          onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, discountId: e.target.value }))}
-        />
+      <div className="payload-title">payload section</div>
 
-        <label>timeLimit: </label>
-        <input
-          type="text"
-          onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, timeLimit: Number(e.target.value) }))}
-        />
+      <label>discountId: </label>
+      <input
+        type="text"
+        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, discountId: e.target.value }))}
+      />
 
-        <label>dDay: </label>
-        <input
-          type="text"
-          onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, dDay: Number(e.target.value) }))}
-        />
-      </form>
-      <div>
+      <label>timeLimit: </label>
+      <input
+        type="text"
+        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, timeLimit: Number(e.target.value) }))}
+      />
+
+      <label>dDay: </label>
+      <input
+        type="text"
+        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, dDay: Number(e.target.value) }))}
+      />
+
+      <div className="button-wrapper">
         <button
           disabled={isFetching}
           type="button"
@@ -98,7 +97,7 @@ function TicketPart() {
           DELETE 때리기
         </button>
       </div>
-    </>
+    </form>
   );
 }
 export default TicketPart;

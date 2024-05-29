@@ -21,36 +21,36 @@ function NewWebdcPart() {
   };
 
   return (
-    <>
-      <form>
-        <div>payload section</div>
-        <div></div>
+    <form>
+      <div className="payload-title">payload section</div>
 
-        <label>systemSeq: </label>
-        <input
-          type="number"
-          onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, systemSeq: Number(e.target.value) }))}
-        />
+      <label htmlFor="systemSeq">systemSeq: </label>
+      <input
+        id="systemSeq"
+        type="number"
+        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, systemSeq: Number(e.target.value) }))}
+      />
 
-        <label>parkinglotSeq: </label>
-        <input
-          type="number"
-          onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, parkinglotSeq: Number(e.target.value) }))}
-        />
+      <label htmlFor="parkinglotSeq">parkinglotSeq: </label>
+      <input
+        id="parkinglotSeq"
+        type="number"
+        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, parkinglotSeq: Number(e.target.value) }))}
+      />
 
-        <label>env: </label>
-        <textarea
-          rows="5"
-          cols="30"
-          onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, env: e.target.value }))}
-        />
-      </form>
-      <div>
+      <label htmlFor="env">env: </label>
+      <textarea
+        id="env"
+        rows="5"
+        cols="30"
+        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, env: e.target.value }))}
+      />
+      <div className="button-wrapper">
         <button type="button" disabled={isFetching} onClick={() => handleCreateNewWebdc(newWebdcPayload)}>
           POST 때리기
         </button>
       </div>
-    </>
+    </form>
   );
 }
 

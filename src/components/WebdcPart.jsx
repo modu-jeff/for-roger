@@ -48,26 +48,25 @@ function WebdcPart() {
   };
 
   return (
-    <>
-      <form>
-        <label>WebdcSeq:</label>
-        <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+    <form>
+      <label htmlFor="webdcSeq">WebdcSeq:</label>
+      <input id="webdcSeq" type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
 
-        <div>payload section</div>
-        <div></div>
+      <div className="payload-title">payload section</div>
 
-        <label>systemSeq: </label>
-        <input
-          type="number"
-          onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, systemSeq: Number(e.target.value) }))}
-        />
-        <label>parkinglotSeq: </label>
-        <input
-          type="number"
-          onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, parkinglotSeq: Number(e.target.value) }))}
-        />
-      </form>
-      <div>
+      <label htmlFor="systemSeq">systemSeq: </label>
+      <input
+        id="systemSeq"
+        type="number"
+        onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, systemSeq: Number(e.target.value) }))}
+      />
+      <label htmlFor="parkinglotSeq">parkinglotSeq: </label>
+      <input
+        id="parkinglotSeq"
+        type="number"
+        onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, parkinglotSeq: Number(e.target.value) }))}
+      />
+      <div className="button-wrapper">
         <button type="button" disabled={isFetching} onClick={() => handleCreateWebdc(webdcSeq, webdcPayload)}>
           POST 때리기
         </button>
@@ -78,7 +77,7 @@ function WebdcPart() {
           DELETE 때리기
         </button>
       </div>
-    </>
+    </form>
   );
 }
 export default WebdcPart;

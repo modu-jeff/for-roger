@@ -43,92 +43,96 @@ function TicketModifyPart() {
   };
 
   return (
-    <>
-      <form>
-        <label>webdcSeq:</label>
-        <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+    <form>
+      <label htmlFor="webdcSeq">webdcSeq:</label>
+      <input id="webdcSeq" type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
 
-        <label>ticketSeq:</label>
-        <input type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
+      <label htmlFor="ticketSeq">ticketSeq:</label>
+      <input id="ticketSeq" type="number" onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
 
-        <div>payload section</div>
-        <div></div>
+      <div className="payload-title">payload section</div>
 
-        <label>discountId: </label>
-        <input
-          type="text"
-          onChange={(e) => {
-            dispatch(setTicketModifyPayload({ ...ticketModifyPayload, discountId: e.target.value }));
-          }}
-        />
+      <label htmlFor="discountId">discountId: </label>
+      <input
+        id="discountId"
+        type="text"
+        onChange={(e) => {
+          dispatch(setTicketModifyPayload({ ...ticketModifyPayload, discountId: e.target.value }));
+        }}
+      />
 
-        <label>timeLimit: </label>
-        <input
-          type="number"
-          onChange={(e) =>
-            dispatch(setTicketModifyPayload({ ...ticketModifyPayload, timeLimit: Number(e.target.value) }))
-          }
-        />
+      <label htmlFor="timeLimit">timeLimit: </label>
+      <input
+        id="timeLimit"
+        type="number"
+        onChange={(e) =>
+          dispatch(setTicketModifyPayload({ ...ticketModifyPayload, timeLimit: Number(e.target.value) }))
+        }
+      />
 
-        <label>dDay: </label>
-        <input
-          type="number"
-          onChange={(e) => dispatch(setTicketModifyPayload({ ...ticketModifyPayload, dDay: Number(e.target.value) }))}
-        />
+      <label htmlFor="dDay">dDay: </label>
+      <input
+        id="dDay"
+        type="number"
+        onChange={(e) => dispatch(setTicketModifyPayload({ ...ticketModifyPayload, dDay: Number(e.target.value) }))}
+      />
 
-        <label>report.reportMemo: </label>
-        <input
-          type="text"
-          onChange={(e) =>
-            dispatch(
-              setTicketModifyPayload({
-                ...ticketModifyPayload,
-                report: { ...ticketModifyPayload.report, reportMemo: e.target.value },
-              }),
-            )
-          }
-        />
+      <label htmlFor="report-reportMemo">report.reportMemo: </label>
+      <input
+        id="report-reportMemo"
+        type="text"
+        onChange={(e) =>
+          dispatch(
+            setTicketModifyPayload({
+              ...ticketModifyPayload,
+              report: { ...ticketModifyPayload.report, reportMemo: e.target.value },
+            }),
+          )
+        }
+      />
 
-        <label>report.runDt: </label>
-        <input
-          type="text"
-          onChange={(e) =>
-            dispatch(
-              setTicketModifyPayload({
-                ...ticketModifyPayload,
-                report: { ...ticketModifyPayload.report, runDt: e.target.value },
-              }),
-            )
-          }
-        />
+      <label htmlFor="report-runDt">report.runDt: </label>
+      <input
+        id="report-runDt"
+        type="text"
+        onChange={(e) =>
+          dispatch(
+            setTicketModifyPayload({
+              ...ticketModifyPayload,
+              report: { ...ticketModifyPayload.report, runDt: e.target.value },
+            }),
+          )
+        }
+      />
 
-        <label>report.failDt: </label>
-        <input
-          type="text"
-          onChange={(e) =>
-            dispatch(
-              setTicketModifyPayload({
-                ...ticketModifyPayload,
-                report: { ...ticketModifyPayload.report, failDt: e.target.value },
-              }),
-            )
-          }
-        />
+      <label htmlFor="report-failDt">report.failDt: </label>
+      <input
+        id="report-failDt"
+        type="text"
+        onChange={(e) =>
+          dispatch(
+            setTicketModifyPayload({
+              ...ticketModifyPayload,
+              report: { ...ticketModifyPayload.report, failDt: e.target.value },
+            }),
+          )
+        }
+      />
 
-        <label>report.reportDt: </label>
-        <input
-          type="text"
-          onChange={(e) =>
-            dispatch(
-              setTicketModifyPayload({
-                ...ticketModifyPayload,
-                report: { ...ticketModifyPayload.report, reportDt: e.target.value },
-              }),
-            )
-          }
-        />
-      </form>
-      <div>
+      <label htmlFor="report-reportDt">report.reportDt: </label>
+      <input
+        id="report-reportDt"
+        type="text"
+        onChange={(e) =>
+          dispatch(
+            setTicketModifyPayload({
+              ...ticketModifyPayload,
+              report: { ...ticketModifyPayload.report, reportDt: e.target.value },
+            }),
+          )
+        }
+      />
+      <div className="button-wrapper">
         <button
           type="button"
           disabled={isFetching}
@@ -140,7 +144,7 @@ function TicketModifyPart() {
           DELETE 때리기
         </button>
       </div>
-    </>
+    </form>
   );
 }
 

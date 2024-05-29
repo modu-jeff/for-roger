@@ -34,30 +34,27 @@ function WebdcModifyPart() {
   };
 
   return (
-    <>
-      <form>
-        <label>webdcSeq:</label>
-        <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+    <form>
+      <label htmlFor="webdcSeq">webdcSeq:</label>
+      <input id="webdcSeq" type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
 
-        <div>payload section</div>
-        <div></div>
+      <div className="payload-title">payload section</div>
 
-        <label>systemSeq: </label>
-        <input
-          type="number"
-          onChange={(e) =>
-            dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, systemSeq: Number(e.target.value) }))
-          }
-        />
+      <label htmlFor="systemSeq">systemSeq: </label>
+      <input
+        id="systemSeq"
+        type="number"
+        onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, systemSeq: Number(e.target.value) }))}
+      />
 
-        <label>env: </label>
-        <textarea
-          cols="30"
-          rows="5"
-          onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, env: e.target.value }))}
-        />
-      </form>
-      <div>
+      <label htmlFor="env">env: </label>
+      <textarea
+        id="env"
+        cols="30"
+        rows="5"
+        onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, env: e.target.value }))}
+      />
+      <div className="button-wrapper">
         <button disabled={isFetching} type="button" onClick={() => handleChangeWebdc(webdcSeq, webdcModifyPayload)}>
           PUT 때리기
         </button>
@@ -65,7 +62,7 @@ function WebdcModifyPart() {
           DELETE 때리기
         </button>
       </div>
-    </>
+    </form>
   );
 }
 

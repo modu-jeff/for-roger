@@ -22,28 +22,26 @@ function WebdcTicketPart() {
   };
 
   return (
-    <>
-      <form>
-        <label>webdcSeq:</label>
-        <input type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
+    <form>
+      <label htmlFor="webdcSeq">webdcSeq:</label>
+      <input id="webdcSeq" type="number" onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))} />
 
-        <div>payload section</div>
-        <div></div>
+      <div className="payload-title">payload section</div>
 
-        <label>tickets: </label>
-        <textarea
-          cols="30"
-          rows="5"
-          placeholder="배열안에 객체 친구들"
-          onChange={(e) => dispatch(setWebdcTicketPayload(e.target.value))}
-        />
-      </form>
-      <div>
+      <label htmlFor="tickets">tickets: </label>
+      <textarea
+        id="tickets"
+        cols="30"
+        rows="5"
+        placeholder="배열안에 객체 친구들"
+        onChange={(e) => dispatch(setWebdcTicketPayload(e.target.value))}
+      />
+      <div className="button-wrapper">
         <button disabled={isFetching} type="button" onClick={() => handleCreateNewTicket(webdcSeq, webdcTicketPayload)}>
           POST 때리기
         </button>
       </div>
-    </>
+    </form>
   );
 }
 

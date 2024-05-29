@@ -48,23 +48,19 @@ function EnvPart() {
   };
 
   return (
-    <>
-      <form>
-        <label>WebdcSeq:</label>
-        <input type="number" onChange={(e) => dispatch(setEnvWebdcSeq(Number(e.target.value)))} />
-        <label>env: </label>
-        <textarea
-          onChange={(e) => {
-            dispatch(setEnvPayload(e.target.value));
-          }}
-          rows="5"
-          cols="30"
-          type="text"
-        />
-        <br />
-        <br />
-      </form>
-      <div>
+    <form>
+      <label>WebdcSeq:</label>
+      <input type="number" onChange={(e) => dispatch(setEnvWebdcSeq(Number(e.target.value)))} />
+      <label>env: </label>
+      <textarea
+        onChange={(e) => {
+          dispatch(setEnvPayload(e.target.value));
+        }}
+        rows="5"
+        cols="30"
+        type="text"
+      />
+      <div className="button-wrapper">
         <button type="button" disabled={isFetching} onClick={() => handleCreateEnv(envWebdcSeq, envWebdcPayload)}>
           POST 때리기
         </button>
@@ -75,7 +71,7 @@ function EnvPart() {
           DELETE 때리기
         </button>
       </div>
-    </>
+    </form>
   );
 }
 
