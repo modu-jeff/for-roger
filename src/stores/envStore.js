@@ -5,12 +5,10 @@ const SET_ENV_WEBDC_SEQ = 'env/SET_ENV_WEBDC_SEQ';
 const SET_ENV_PAYLOAD = 'env/SET_ENV_PAYLOAD';
 
 export const setEnvWebdcSeq = createAction(SET_ENV_WEBDC_SEQ);
-export const setEnvPayload = createAction(SET_ENV_PAYLOAD, (payload) => ({
-  payload,
-}));
+export const setEnvPayload = createAction(SET_ENV_PAYLOAD);
 
 const initialState = {
-  envWebdcSeq: '',
+  envWebdcSeq: 0,
   envWebdcPayload: {
     env: '',
   },
@@ -20,7 +18,7 @@ const envReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(setEnvWebdcSeq, (state, { payload }) =>
       produce(state, (draft) => {
-        draft.envWebdcSeq = payload;
+        draft.envWebdcSeq = Number(payload);
       }),
     )
     .addCase(setEnvPayload, (state, { payload }) =>

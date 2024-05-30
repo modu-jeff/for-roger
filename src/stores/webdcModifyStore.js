@@ -8,9 +8,9 @@ export const setWebdcSeq = createAction(SET_WEBDC_SEQ);
 export const setWebdcModifyPayload = createAction(SET_WEBDC_MODIFY_PAYLOAD, (payload) => ({ payload }));
 
 const initialState = {
-  webdcSeq: '',
+  webdcSeq: 0,
   webdcModifyPayload: {
-    systemSeq: '',
+    systemSeq: 0,
     env: '',
   },
 };
@@ -19,12 +19,12 @@ const webdcModifyReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(setWebdcSeq, (state, { payload }) =>
       produce(state, (draft) => {
-        draft.webdcSeq = payload;
+        draft.webdcSeq = Number(payload);
       }),
     )
     .addCase(setWebdcModifyPayload, (state, { payload }) =>
       produce(state, (draft) => {
-        draft.webdcModifyPayload.systemSeq = payload.systemSeq;
+        draft.webdcModifyPayload.systemSeq = Number(payload.systemSeq);
         draft.webdcModifyPayload.env = payload.env;
       }),
     )

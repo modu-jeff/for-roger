@@ -8,7 +8,7 @@ export const setWebdcSeq = createAction(SET_WEBDC_SEQ);
 export const setWebdcTicketPayload = createAction(SET_WEBDC_TICKET_PAYLOAD);
 
 const initialState = {
-  webdcSeq: '',
+  webdcSeq: 0,
   webdcTicketPayload: {
     tickets: '',
   },
@@ -18,7 +18,7 @@ const webdcTicketReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(setWebdcSeq, (state, { payload }) =>
       produce(state, (draft) => {
-        draft.webdcSeq = payload;
+        draft.webdcSeq = Number(payload);
       }),
     )
     .addCase(setWebdcTicketPayload, (state, { payload }) =>

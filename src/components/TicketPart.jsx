@@ -53,14 +53,10 @@ function TicketPart() {
   return (
     <form>
       <label>WebdcSeq:</label>
-      <input
-        type="number"
-        value={ticketWebdcSeq}
-        onChange={(e) => dispatch(setTicketWebdcSeq(Number(e.target.value)))}
-      />
+      <input type="text" value={ticketWebdcSeq} onChange={(e) => dispatch(setTicketWebdcSeq(e.target.value))} />
 
       <label>TicketSeq:</label>
-      <input type="number" value={ticketSeq} onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
+      <input type="text" value={ticketSeq} onChange={(e) => dispatch(setTicketSeq(e.target.value))} />
 
       <div className="payload-title">payload section</div>
 
@@ -75,14 +71,14 @@ function TicketPart() {
       <input
         type="text"
         value={ticketPayload.timeLimit}
-        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, timeLimit: Number(e.target.value) }))}
+        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, timeLimit: e.target.value }))}
       />
 
       <label>dDay: </label>
       <input
         type="text"
         value={ticketPayload.dDay}
-        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, dDay: Number(e.target.value) }))}
+        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, dDay: e.target.value }))}
       />
 
       <div className="button-wrapper">

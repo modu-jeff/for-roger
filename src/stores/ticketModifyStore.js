@@ -10,12 +10,12 @@ export const setTicketSeq = createAction(SET_TICKET_SEQ);
 export const setTicketModifyPayload = createAction(SET_TICKET_MODIFY_PAYLOAD, (payload) => ({ payload }));
 
 const initialState = {
-  webdcSeq: '',
-  ticketSeq: '',
+  webdcSeq: 0,
+  ticketSeq: 0,
   ticketModifyPayload: {
     discountId: '',
-    timeLimit: '',
-    dDay: '',
+    timeLimit: 0,
+    dDay: 0,
     report: {
       reportMemo: '',
       runDt: '',
@@ -29,19 +29,19 @@ const ticketModifyReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(setWebdcSeq, (state, { payload }) =>
       produce(state, (draft) => {
-        draft.webdcSeq = payload;
+        draft.webdcSeq = Number(payload);
       }),
     )
     .addCase(setTicketSeq, (state, { payload }) =>
       produce(state, (draft) => {
-        draft.ticketSeq = payload;
+        draft.ticketSeq = Number(payload);
       }),
     )
     .addCase(setTicketModifyPayload, (state, { payload }) =>
       produce(state, (draft) => {
         draft.ticketModifyPayload.discountId = payload.discountId;
-        draft.ticketModifyPayload.timeLimit = payload.timeLimit;
-        draft.ticketModifyPayload.dDay = payload.dDay;
+        draft.ticketModifyPayload.timeLimit = Number(payload.timeLimit);
+        draft.ticketModifyPayload.dDay = Number(payload.dDay);
         draft.ticketModifyPayload.report.reportMemo = payload.report.reportMemo;
         draft.ticketModifyPayload.report.runDt = payload.report.runDt;
         draft.ticketModifyPayload.report.failDt = payload.report.failDt;

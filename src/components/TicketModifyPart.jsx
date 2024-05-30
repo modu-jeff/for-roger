@@ -19,7 +19,7 @@ function TicketModifyPart() {
           discountId: '',
           timeLimit: 0,
           dDay: 0,
-          report: { reportMemo: '', runDt: null, failDt: null, reportDt: null },
+          report: { reportMemo: '', runDt: '', failDt: '', reportDt: '' },
         }),
       );
     } catch (err) {

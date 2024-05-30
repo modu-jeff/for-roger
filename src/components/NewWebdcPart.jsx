@@ -27,24 +27,24 @@ function NewWebdcPart() {
       <label htmlFor="systemSeq">systemSeq: </label>
       <input
         id="systemSeq"
-        type="number"
+        type="text"
         value={newWebdcPayload.systemSeq}
-        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, systemSeq: Number(e.target.value) }))}
+        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, systemSeq: e.target.value }))}
       />
 
       <label htmlFor="parkinglotSeq">parkinglotSeq: </label>
       <input
         id="parkinglotSeq"
-        type="number"
+        type="text"
         value={newWebdcPayload.parkinglotSeq}
-        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, parkinglotSeq: Number(e.target.value) }))}
+        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, parkinglotSeq: e.target.value }))}
       />
 
       <label htmlFor="env">env: </label>
       <textarea
         id="env"
-        rows="5"
-        cols="30"
+        rows={5}
+        cols={30}
         value={newWebdcPayload.env}
         onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, env: e.target.value }))}
       />

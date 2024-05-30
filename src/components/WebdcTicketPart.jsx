@@ -24,12 +24,7 @@ function WebdcTicketPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">webdcSeq:</label>
-      <input
-        id="webdcSeq"
-        type="number"
-        value={webdcSeq}
-        onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
-      />
+      <input id="webdcSeq" type="text" value={webdcSeq} onChange={(e) => dispatch(setWebdcSeq(e.target.value))} />
 
       <div className="payload-title">payload section</div>
 

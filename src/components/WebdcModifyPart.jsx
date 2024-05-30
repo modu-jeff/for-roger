@@ -36,28 +36,23 @@ function WebdcModifyPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">webdcSeq:</label>
-      <input
-        id="webdcSeq"
-        type="number"
-        value={webdcSeq}
-        onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
-      />
+      <input id="webdcSeq" type="text" value={webdcSeq} onChange={(e) => dispatch(setWebdcSeq(e.target.value))} />
 
       <div className="payload-title">payload section</div>
 
       <label htmlFor="systemSeq">systemSeq: </label>
       <input
         id="systemSeq"
-        type="number"
+        type="text"
         value={webdcModifyPayload.systemSeq}
-        onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, systemSeq: Number(e.target.value) }))}
+        onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, systemSeq: e.target.value }))}
       />
 
       <label htmlFor="env">env: </label>
       <textarea
         id="env"
-        cols="30"
-        rows="5"
+        cols={30}
+        rows={5}
         value={webdcModifyPayload.env}
         onChange={(e) => dispatch(setWebdcModifyPayload({ ...webdcModifyPayload, env: e.target.value }))}
       />
