@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setTicketWebdcSeq, setTicketSeq, setTicketPayload } from '../stores/ticketStore';
-import { createTicket, modifyTicket, deleteTicket } from '../fetching';
+import { setTicketWebdcSeq, setTicketSeq, setTicketPayload } from '@/stores/ticketStore';
+import { createTicket, modifyTicket, deleteTicket } from '@/fetching';
+import type { RootState } from '@/stores';
 
 function TicketPart() {
   const dispatch = useDispatch();
   const [isFetching, setIsFetching] = useState(false);
-  const { ticketWebdcSeq, ticketSeq, ticketPayload } = useSelector((state) => state.ticket);
+  const { ticketWebdcSeq, ticketSeq, ticketPayload } = useSelector((state: RootState) => state.ticket);
 
-  const handleCreateTicket = async (webdcSeq, tickSeq, payload) => {
+  const handleCreateTicket = async (webdcSeq: number, tickSeq: number, payload: any) => {
     setIsFetching(true);
     try {
       await createTicket(webdcSeq, tickSeq, payload);
@@ -22,7 +23,7 @@ function TicketPart() {
     }
   };
 
-  const handleModifyTicket = async (webdcSeq, tickSeq, payload) => {
+  const handleModifyTicket = async (webdcSeq: number, tickSeq: number, payload: any) => {
     setIsFetching(true);
     try {
       await modifyTicket(webdcSeq, tickSeq, payload);
@@ -36,7 +37,7 @@ function TicketPart() {
     }
   };
 
-  const handleDeleteTicket = async (webdcSeq, tickSeq) => {
+  const handleDeleteTicket = async (webdcSeq: number, tickSeq: number) => {
     setIsFetching(true);
     try {
       await deleteTicket(webdcSeq, tickSeq);
@@ -53,10 +54,17 @@ function TicketPart() {
   return (
     <form>
       <label>WebdcSeq:</label>
+<<<<<<< HEAD:src/components/TicketPart.jsx
       <input type="text" value={ticketWebdcSeq} onChange={(e) => dispatch(setTicketWebdcSeq(e.target.value))} />
 
       <label>TicketSeq:</label>
       <input type="text" value={ticketSeq} onChange={(e) => dispatch(setTicketSeq(e.target.value))} />
+=======
+      <input type="text" value={ticketWebdcSeq} onChange={(e) => dispatch(setTicketWebdcSeq(Number(e.target.value)))} />
+
+      <label>TicketSeq:</label>
+      <input type="text" value={ticketSeq} onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
+>>>>>>> 9786c92 (type 전환):src/components/TicketPart.tsx
 
       <div className="payload-title">payload section</div>
 

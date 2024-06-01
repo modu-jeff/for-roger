@@ -1,10 +1,10 @@
-import EnvPart from './components/EnvPart';
-import NewWebdcPart from './components/NewWebdcPart';
-import TicketPart from './components/TicketPart';
-import WebdcPart from './components/WebdcPart';
-import WebdcTicketPart from './components/WebdcTicketPart';
-import TicketModifyPart from './components/TicketModifyPart';
-import WebdcModifyPart from './components/WebdcModifyPart';
+import EnvPart from '@/components/EnvPart';
+import NewWebdcPart from '@/components/NewWebdcPart';
+import TicketPart from '@/components/TicketPart';
+import WebdcPart from '@/components/WebdcPart';
+import WebdcTicketPart from '@/components/WebdcTicketPart';
+import TicketModifyPart from '@/components/TicketModifyPart';
+import WebdcModifyPart from '@/components/WebdcModifyPart';
 import './App.css';
 
 function App() {

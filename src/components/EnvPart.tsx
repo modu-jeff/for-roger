@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setEnvWebdcSeq, setEnvPayload } from '../stores/envStore';
-import { createEnv, modifyEnv, deleteEnv } from '../fetching';
+import { setEnvWebdcSeq, setEnvPayload } from '@/stores/envStore';
+import { createEnv, modifyEnv, deleteEnv } from '@/fetching';
+import type { RootState } from '@/stores';
 
 function EnvPart() {
   const dispatch = useDispatch();
   const [isFetching, setIsFetching] = useState(false);
-  const { envWebdcSeq, envWebdcPayload } = useSelector((state) => state.env);
+  const { envWebdcSeq, envWebdcPayload } = useSelector((state: RootState) => state.env);
 
-  const handleCreateEnv = async (webdcSeq, payload) => {
+  const handleCreateEnv = async (webdcSeq: string | number, payload: { env: string }) => {
     setIsFetching(true);
     try {
-      await createEnv(webdcSeq, payload);
+      await createEnv(Number(webdcSeq), payload);
       dispatch(setEnvWebdcSeq(0));
       dispatch(setEnvPayload(''));
     } catch (err) {
@@ -21,7 +22,7 @@ function EnvPart() {
     }
   };
 
-  const handleModifyEnv = async (webdcSeq, payload) => {
+  const handleModifyEnv = async (webdcSeq: number, payload: { env: string }) => {
     setIsFetching(true);
     try {
       await modifyEnv(webdcSeq, payload);
@@ -34,7 +35,7 @@ function EnvPart() {
     }
   };
 
-  const handleDeleteEnv = async (webdcSeq) => {
+  const handleDeleteEnv = async (webdcSeq: number) => {
     setIsFetching(true);
     try {
       await deleteEnv(webdcSeq);
@@ -50,15 +51,18 @@ function EnvPart() {
   return (
     <form>
       <label>WebdcSeq:</label>
+<<<<<<< HEAD:src/components/EnvPart.jsx
       <input value={envWebdcSeq} type="text" onChange={(e) => dispatch(setEnvWebdcSeq(e.target.value))} />
+=======
+      <input value={envWebdcSeq} type="text" onChange={(e) => dispatch(setEnvWebdcSeq(Number(e.target.value)))} />
+>>>>>>> 9786c92 (type 전환):src/components/EnvPart.tsx
       <label>env: </label>
       <textarea
         onChange={(e) => {
           dispatch(setEnvPayload(e.target.value));
         }}
-        rows="5"
-        cols="30"
-        type="text"
+        rows={5}
+        cols={30}
         value={envWebdcPayload.env}
       />
       <div className="button-wrapper">

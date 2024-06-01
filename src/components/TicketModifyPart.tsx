@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { modifyNewTicket, deleteNewTicket } from '../fetching';
-import { setWebdcSeq, setTicketSeq, setTicketModifyPayload } from '../stores/ticketModifyStore';
+import { modifyNewTicket, deleteNewTicket } from '@/fetching';
+import { setWebdcSeq, setTicketSeq, setTicketModifyPayload } from '@/stores/ticketModifyStore';
+import type { RootState } from '@/stores';
 
 function TicketModifyPart() {
   const [isFetching, setIsFetching] = useState(false);
   const dispatch = useDispatch();
-  const { webdcSeq, ticketSeq, ticketModifyPayload } = useSelector((state) => state.ticketModify);
+  const { webdcSeq, ticketSeq, ticketModifyPayload } = useSelector((state: RootState) => state.ticketModify);
 
-  const handleModifyNewTicket = async (dcSeq, tickSeq, payload) => {
+  const handleModifyNewTicket = async (dcSeq: number, tickSeq: number, payload: any) => {
     setIsFetching(true);
     try {
       await modifyNewTicket(dcSeq, tickSeq, payload);
@@ -29,7 +30,7 @@ function TicketModifyPart() {
     }
   };
 
-  const handleDeleteNewTicket = async (dcSeq, tickSeq) => {
+  const handleDeleteNewTicket = async (dcSeq: number, tickSeq: number) => {
     setIsFetching(true);
     try {
       await deleteNewTicket(dcSeq, tickSeq);
@@ -47,7 +48,7 @@ function TicketModifyPart() {
       <label htmlFor="webdcSeq">webdcSeq:</label>
       <input
         id="webdcSeq"
-        type="number"
+        type="text"
         value={webdcSeq}
         onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
       />
@@ -55,7 +56,7 @@ function TicketModifyPart() {
       <label htmlFor="ticketSeq">ticketSeq:</label>
       <input
         id="ticketSeq"
-        type="number"
+        type="text"
         value={ticketSeq}
         onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))}
       />
@@ -75,7 +76,7 @@ function TicketModifyPart() {
       <label htmlFor="timeLimit">timeLimit: </label>
       <input
         id="timeLimit"
-        type="number"
+        type="text"
         value={ticketModifyPayload.timeLimit}
         onChange={(e) =>
           dispatch(setTicketModifyPayload({ ...ticketModifyPayload, timeLimit: Number(e.target.value) }))
@@ -85,7 +86,7 @@ function TicketModifyPart() {
       <label htmlFor="dDay">dDay: </label>
       <input
         id="dDay"
-        type="number"
+        type="text"
         value={ticketModifyPayload.dDay}
         onChange={(e) => dispatch(setTicketModifyPayload({ ...ticketModifyPayload, dDay: Number(e.target.value) }))}
       />

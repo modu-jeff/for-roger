@@ -5,8 +5,8 @@ const SET_WEBDC_SEQ = 'ticketModify/SET_WEBDC_SEQ';
 const SET_TICKET_SEQ = 'ticketModify/SET_TICKET_SEQ';
 const SET_TICKET_MODIFY_PAYLOAD = 'ticketModify/SET_TICKET_MODIFY_PAYLOAD';
 
-export const setWebdcSeq = createAction(SET_WEBDC_SEQ);
-export const setTicketSeq = createAction(SET_TICKET_SEQ);
+export const setWebdcSeq = createAction<number, typeof SET_WEBDC_SEQ>(SET_WEBDC_SEQ);
+export const setTicketSeq = createAction<number, typeof SET_TICKET_SEQ>(SET_TICKET_SEQ);
 export const setTicketModifyPayload = createAction(SET_TICKET_MODIFY_PAYLOAD, (payload) => ({ payload }));
 
 const initialState = {

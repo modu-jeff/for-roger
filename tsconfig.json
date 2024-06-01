@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "target": "ESNext",
+    "allowJs": false,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noEmit": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*", "vite.config.ts"],
+  "exclude": ["node_modules", "dist", ".eslintrc.cjs", ".prettierrc.cjs"]
+}

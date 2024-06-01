@@ -4,8 +4,10 @@ import { produce } from 'immer';
 const SET_WEBDC_SEQ = ' webdcModify/SET_WEBDC_SEQ';
 const SET_WEBDC_MODIFY_PAYLOAD = 'webdcModify/SET_WEBDC_MODIFY_PAYLOAD';
 
-export const setWebdcSeq = createAction(SET_WEBDC_SEQ);
-export const setWebdcModifyPayload = createAction(SET_WEBDC_MODIFY_PAYLOAD, (payload) => ({ payload }));
+export const setWebdcSeq = createAction<number, typeof SET_WEBDC_SEQ>(SET_WEBDC_SEQ);
+export const setWebdcModifyPayload = createAction<{ systemSeq: number; env: string }, typeof SET_WEBDC_MODIFY_PAYLOAD>(
+  SET_WEBDC_MODIFY_PAYLOAD,
+);
 
 const initialState = {
   webdcSeq: 0,

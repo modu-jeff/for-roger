@@ -3,7 +3,10 @@ import { produce } from 'immer';
 
 const SET_NEW_WEBDC_PAYLOAD = 'newWebdc/SET_NEW_WEBDC_PAYLOAD';
 
-export const setNewWebdcPayload = createAction(SET_NEW_WEBDC_PAYLOAD, (payload) => ({ payload }));
+export const setNewWebdcPayload = createAction<
+  { systemSeq: number; parkinglotSeq: number; env: string },
+  typeof SET_NEW_WEBDC_PAYLOAD
+>(SET_NEW_WEBDC_PAYLOAD);
 
 const initialState = {
   newWebdcPayload: {

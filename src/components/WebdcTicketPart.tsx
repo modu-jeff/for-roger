@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setWebdcSeq, setWebdcTicketPayload } from '../stores/webdcTicketStore';
-import { createNewTicket } from '../fetching';
+import { setWebdcSeq, setWebdcTicketPayload } from '@/stores/webdcTicketStore';
+import { createNewTicket } from '@/fetching';
+import type { RootState } from '@/stores';
 
 function WebdcTicketPart() {
   const [isFetching, setIsFetching] = useState(false);
   const dispatch = useDispatch();
-  const { webdcSeq, webdcTicketPayload } = useSelector((state) => state.webdcTicket);
+  const { webdcSeq, webdcTicketPayload } = useSelector((state: RootState) => state.webdcTicket);
 
-  const handleCreateNewTicket = async (seq, payload) => {
+  const handleCreateNewTicket = async (seq: number, payload: any) => {
     setIsFetching(true);
     try {
       await createNewTicket(seq, payload);
       dispatch(setWebdcSeq(0));
-      dispatch(setWebdcTicketPayload({ tickets: '' }));
+      dispatch(setWebdcTicketPayload(''));
     } catch (err) {
       console.error(err);
     } finally {
@@ -24,15 +25,24 @@ function WebdcTicketPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">webdcSeq:</label>
+<<<<<<< HEAD:src/components/WebdcTicketPart.jsx
       <input id="webdcSeq" type="text" value={webdcSeq} onChange={(e) => dispatch(setWebdcSeq(e.target.value))} />
+=======
+      <input
+        id="webdcSeq"
+        type="text"
+        value={webdcSeq}
+        onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
+      />
+>>>>>>> 9786c92 (type 전환):src/components/WebdcTicketPart.tsx
 
       <div className="payload-title">payload section</div>
 
       <label htmlFor="tickets">tickets: </label>
       <textarea
         id="tickets"
-        cols="30"
-        rows="5"
+        cols={30}
+        rows={5}
         placeholder="배열안에 객체 친구들"
         value={webdcTicketPayload.tickets}
         onChange={(e) => dispatch(setWebdcTicketPayload(e.target.value))}

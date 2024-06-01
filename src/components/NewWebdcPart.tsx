@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setNewWebdcPayload } from '../stores/newWebdcStore';
-import { createNewWebdc } from '../fetching';
+import { setNewWebdcPayload } from '@/stores/newWebdcStore';
+import { createNewWebdc } from '@/fetching';
+import type { RootState } from '@/stores';
 
 function NewWebdcPart() {
   const [isFetching, setIsFetching] = useState(false);
   const dispatch = useDispatch();
-  const { newWebdcPayload } = useSelector((state) => state.newWebdc);
+  const { newWebdcPayload } = useSelector((state: RootState) => state.newWebdc);
 
-  const handleCreateNewWebdc = async (payload) => {
+  const handleCreateNewWebdc = async (payload: any) => {
     setIsFetching(true);
     try {
       await createNewWebdc(payload);

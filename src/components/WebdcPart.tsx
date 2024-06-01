@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setWebdcSeq, setWebdcPayload } from '../stores/webdcStore';
-import { createWebdc, modifyWebdc, deleteWebdc } from '../fetching';
+import { setWebdcSeq, setWebdcPayload } from '@/stores/webdcStore';
+import { createWebdc, modifyWebdc, deleteWebdc } from '@/fetching';
+import type { RootState } from '@/stores';
 
 function WebdcPart() {
   const [isFetching, setIsFetching] = useState(false);
   const dispatch = useDispatch();
-  const { webdcSeq, webdcPayload } = useSelector((state) => state.webdc);
+  const { webdcSeq, webdcPayload } = useSelector((state: RootState) => state.webdc);
 
-  const handleCreateWebdc = async (seq, payload) => {
+  const handleCreateWebdc = async (seq: number, payload: any) => {
     setIsFetching(true);
     try {
       await createWebdc(seq, payload);
@@ -21,7 +22,7 @@ function WebdcPart() {
     }
   };
 
-  const handleModifyWebdc = async (seq, payload) => {
+  const handleModifyWebdc = async (seq: number, payload: any) => {
     setIsFetching(true);
     try {
       await modifyWebdc(seq, payload);
@@ -34,7 +35,7 @@ function WebdcPart() {
     }
   };
 
-  const handleDeleteWebdc = async (seq) => {
+  const handleDeleteWebdc = async (seq: number) => {
     setIsFetching(true);
     try {
       await deleteWebdc(seq);
@@ -50,7 +51,16 @@ function WebdcPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">WebdcSeq:</label>
+<<<<<<< HEAD:src/components/WebdcPart.jsx
       <input id="webdcSeq" type="text" value={webdcSeq} onChange={(e) => dispatch(setWebdcSeq(e.target.value))} />
+=======
+      <input
+        id="webdcSeq"
+        type="text"
+        value={webdcSeq}
+        onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
+      />
+>>>>>>> 9786c92 (type 전환):src/components/WebdcPart.tsx
 
       <div className="payload-title">payload section</div>
 
