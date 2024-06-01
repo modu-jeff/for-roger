@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setEnvWebdcSeq, setEnvPayload } from '@/stores/envStore';
-import { createEnv, modifyEnv, deleteEnv } from '@/fetching';
+import { createEnv, modifyEnv, deleteEnv } from '@/api/fetching';
 import type { RootState } from '@/stores';
 
 function EnvPart() {
@@ -51,11 +51,7 @@ function EnvPart() {
   return (
     <form>
       <label>WebdcSeq:</label>
-<<<<<<< HEAD:src/components/EnvPart.jsx
-      <input value={envWebdcSeq} type="text" onChange={(e) => dispatch(setEnvWebdcSeq(e.target.value))} />
-=======
       <input value={envWebdcSeq} type="text" onChange={(e) => dispatch(setEnvWebdcSeq(Number(e.target.value)))} />
->>>>>>> 9786c92 (type 전환):src/components/EnvPart.tsx
       <label>env: </label>
       <textarea
         onChange={(e) => {

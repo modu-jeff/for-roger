@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setTicketWebdcSeq, setTicketSeq, setTicketPayload } from '@/stores/ticketStore';
-import { createTicket, modifyTicket, deleteTicket } from '@/fetching';
+import { createTicket, modifyTicket, deleteTicket } from '@/api/fetching';
 import type { RootState } from '@/stores';
 
 function TicketPart() {
@@ -9,6 +9,7 @@ function TicketPart() {
   const [isFetching, setIsFetching] = useState(false);
   const { ticketWebdcSeq, ticketSeq, ticketPayload } = useSelector((state: RootState) => state.ticket);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleCreateTicket = async (webdcSeq: number, tickSeq: number, payload: any) => {
     setIsFetching(true);
     try {
@@ -23,6 +24,7 @@ function TicketPart() {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleModifyTicket = async (webdcSeq: number, tickSeq: number, payload: any) => {
     setIsFetching(true);
     try {
@@ -54,17 +56,10 @@ function TicketPart() {
   return (
     <form>
       <label>WebdcSeq:</label>
-<<<<<<< HEAD:src/components/TicketPart.jsx
-      <input type="text" value={ticketWebdcSeq} onChange={(e) => dispatch(setTicketWebdcSeq(e.target.value))} />
-
-      <label>TicketSeq:</label>
-      <input type="text" value={ticketSeq} onChange={(e) => dispatch(setTicketSeq(e.target.value))} />
-=======
       <input type="text" value={ticketWebdcSeq} onChange={(e) => dispatch(setTicketWebdcSeq(Number(e.target.value)))} />
 
       <label>TicketSeq:</label>
       <input type="text" value={ticketSeq} onChange={(e) => dispatch(setTicketSeq(Number(e.target.value)))} />
->>>>>>> 9786c92 (type 전환):src/components/TicketPart.tsx
 
       <div className="payload-title">payload section</div>
 
@@ -79,14 +74,14 @@ function TicketPart() {
       <input
         type="text"
         value={ticketPayload.timeLimit}
-        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, timeLimit: e.target.value }))}
+        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, timeLimit: Number(e.target.value) }))}
       />
 
       <label>dDay: </label>
       <input
         type="text"
         value={ticketPayload.dDay}
-        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, dDay: e.target.value }))}
+        onChange={(e) => dispatch(setTicketPayload({ ...ticketPayload, dDay: Number(e.target.value) }))}
       />
 
       <div className="button-wrapper">

@@ -5,18 +5,12 @@ const SET_TICKET_WEBDC_SEQ = 'ticket/SET_TICKET_WEBDC_SEQ';
 const SET_TICKET_SEQ = 'ticket/SET_TICKET_SEQ';
 const SET_TICKET_PAYLOAD = 'ticket/SET_TICKET_PAYLOAD';
 
-<<<<<<< HEAD:src/stores/ticketStore.js
-export const setTicketWebdcSeq = createAction(SET_TICKET_WEBDC_SEQ);
-export const setTicketSeq = createAction(SET_TICKET_SEQ);
-export const setTicketPayload = createAction(SET_TICKET_PAYLOAD, ({ payload }) => ({ payload }));
-=======
 export const setTicketWebdcSeq = createAction<number, typeof SET_TICKET_WEBDC_SEQ>(SET_TICKET_WEBDC_SEQ);
 export const setTicketSeq = createAction<number, typeof SET_TICKET_SEQ>(SET_TICKET_SEQ);
 export const setTicketPayload = createAction<
   { discountId: string; timeLimit: number; dDay: number },
   typeof SET_TICKET_PAYLOAD
 >(SET_TICKET_PAYLOAD);
->>>>>>> 9786c92 (type 전환):src/stores/ticketStore.ts
 
 const initialState = {
   ticketWebdcSeq: 0,

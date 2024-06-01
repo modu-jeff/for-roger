@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setNewWebdcPayload } from '@/stores/newWebdcStore';
-import { createNewWebdc } from '@/fetching';
+import { createNewWebdc } from '@/api/fetching';
 import type { RootState } from '@/stores';
 
 function NewWebdcPart() {
@@ -9,6 +9,7 @@ function NewWebdcPart() {
   const dispatch = useDispatch();
   const { newWebdcPayload } = useSelector((state: RootState) => state.newWebdc);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleCreateNewWebdc = async (payload: any) => {
     setIsFetching(true);
     try {
@@ -30,7 +31,7 @@ function NewWebdcPart() {
         id="systemSeq"
         type="text"
         value={newWebdcPayload.systemSeq}
-        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, systemSeq: e.target.value }))}
+        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, systemSeq: Number(e.target.value) }))}
       />
 
       <label htmlFor="parkinglotSeq">parkinglotSeq: </label>
@@ -38,7 +39,7 @@ function NewWebdcPart() {
         id="parkinglotSeq"
         type="text"
         value={newWebdcPayload.parkinglotSeq}
-        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, parkinglotSeq: e.target.value }))}
+        onChange={(e) => dispatch(setNewWebdcPayload({ ...newWebdcPayload, parkinglotSeq: Number(e.target.value) }))}
       />
 
       <label htmlFor="env">env: </label>

@@ -8,7 +8,7 @@
     },
     "target": "ESNext",
     "allowJs": false,
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "node",
     "sourceMap": true,
     "noEmit": true,

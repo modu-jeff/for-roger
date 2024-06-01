@@ -1,0 +1,49 @@
+.button-wrapper {
+  margin-left: 150px;
+}
+
+.login-button {
+  display: block;
+  background-color: transparent;
+  border: none;
+  curosr: pointer;
+}
+
+.kakao-login-img {
+  width: 400px;
+  height: 60px;
+}
+
+.login-header {
+  width: 100%;
+  margin: 150px 0 100px 150px;
+}
+
+.login-image {
+  width: 200px;
+  height: 80px;
+}
+
+.login-title {
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+
+.login-text {
+  margin-left: 150px;
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bolder;
+  &:last-child {
+    margin-bottom: 50px;
+  }
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}

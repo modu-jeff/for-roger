@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { modifyNewTicket, deleteNewTicket } from '@/fetching';
+import { modifyNewTicket, deleteNewTicket } from '@/api/fetching';
 import { setWebdcSeq, setTicketSeq, setTicketModifyPayload } from '@/stores/ticketModifyStore';
 import type { RootState } from '@/stores';
 
@@ -9,6 +9,7 @@ function TicketModifyPart() {
   const dispatch = useDispatch();
   const { webdcSeq, ticketSeq, ticketModifyPayload } = useSelector((state: RootState) => state.ticketModify);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleModifyNewTicket = async (dcSeq: number, tickSeq: number, payload: any) => {
     setIsFetching(true);
     try {

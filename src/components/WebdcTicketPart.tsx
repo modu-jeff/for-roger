@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setWebdcSeq, setWebdcTicketPayload } from '@/stores/webdcTicketStore';
-import { createNewTicket } from '@/fetching';
+import { createNewTicket } from '@/api/fetching';
 import type { RootState } from '@/stores';
 
 function WebdcTicketPart() {
@@ -9,6 +9,7 @@ function WebdcTicketPart() {
   const dispatch = useDispatch();
   const { webdcSeq, webdcTicketPayload } = useSelector((state: RootState) => state.webdcTicket);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleCreateNewTicket = async (seq: number, payload: any) => {
     setIsFetching(true);
     try {
@@ -25,16 +26,12 @@ function WebdcTicketPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">webdcSeq:</label>
-<<<<<<< HEAD:src/components/WebdcTicketPart.jsx
-      <input id="webdcSeq" type="text" value={webdcSeq} onChange={(e) => dispatch(setWebdcSeq(e.target.value))} />
-=======
       <input
         id="webdcSeq"
         type="text"
         value={webdcSeq}
         onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
       />
->>>>>>> 9786c92 (type 전환):src/components/WebdcTicketPart.tsx
 
       <div className="payload-title">payload section</div>
 

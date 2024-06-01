@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setWebdcSeq, setWebdcPayload } from '@/stores/webdcStore';
-import { createWebdc, modifyWebdc, deleteWebdc } from '@/fetching';
+import { createWebdc, modifyWebdc, deleteWebdc } from '@/api/fetching';
 import type { RootState } from '@/stores';
 
 function WebdcPart() {
@@ -9,6 +9,7 @@ function WebdcPart() {
   const dispatch = useDispatch();
   const { webdcSeq, webdcPayload } = useSelector((state: RootState) => state.webdc);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleCreateWebdc = async (seq: number, payload: any) => {
     setIsFetching(true);
     try {
@@ -22,6 +23,7 @@ function WebdcPart() {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleModifyWebdc = async (seq: number, payload: any) => {
     setIsFetching(true);
     try {
@@ -51,16 +53,12 @@ function WebdcPart() {
   return (
     <form>
       <label htmlFor="webdcSeq">WebdcSeq:</label>
-<<<<<<< HEAD:src/components/WebdcPart.jsx
-      <input id="webdcSeq" type="text" value={webdcSeq} onChange={(e) => dispatch(setWebdcSeq(e.target.value))} />
-=======
       <input
         id="webdcSeq"
         type="text"
         value={webdcSeq}
         onChange={(e) => dispatch(setWebdcSeq(Number(e.target.value)))}
       />
->>>>>>> 9786c92 (type 전환):src/components/WebdcPart.tsx
 
       <div className="payload-title">payload section</div>
 
@@ -69,14 +67,14 @@ function WebdcPart() {
         id="systemSeq"
         type="text"
         value={webdcPayload.systemSeq}
-        onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, systemSeq: e.target.value }))}
+        onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, systemSeq: Number(e.target.value) }))}
       />
       <label htmlFor="parkinglotSeq">parkinglotSeq: </label>
       <input
         id="parkinglotSeq"
         type="text"
         value={webdcPayload.parkinglotSeq}
-        onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, parkinglotSeq: e.target.value }))}
+        onChange={(e) => dispatch(setWebdcPayload({ ...webdcPayload, parkinglotSeq: Number(e.target.value) }))}
       />
       <div className="button-wrapper">
         <button

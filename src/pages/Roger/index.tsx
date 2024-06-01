@@ -1,13 +1,12 @@
 import EnvPart from '@/components/EnvPart';
 import NewWebdcPart from '@/components/NewWebdcPart';
+import TicketModifyPart from '@/components/TicketModifyPart';
 import TicketPart from '@/components/TicketPart';
+import WebdcModifyPart from '@/components/WebdcModifyPart';
 import WebdcPart from '@/components/WebdcPart';
 import WebdcTicketPart from '@/components/WebdcTicketPart';
-import TicketModifyPart from '@/components/TicketModifyPart';
-import WebdcModifyPart from '@/components/WebdcModifyPart';
-import './App.css';
 
-function App() {
+function RogerPage() {
   return (
     <main id="root-layout">
       <section className="env-section">
@@ -48,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default RogerPage;
