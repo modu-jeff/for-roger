@@ -14,6 +14,15 @@ const config: UserConfig = {
     cssMinify: true,
     sourcemap: true,
   },
+  server: {
+    proxy: {
+      '/naver_login_authorize': {
+        target: 'https://nid.naver.com/oauth2.0/authorize',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/naver_login_authorize/, ''),
+      },
+    },
+  },
 };
 
 // https://vitejs.dev/config/

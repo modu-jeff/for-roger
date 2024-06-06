@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { sendKakaoAuthCode } from '@/api/kakao';
+import { sendKakaoAuthCode } from '@/api/socialLogin';
 
 function KakaoLoading() {
   const navigate = useNavigate();
@@ -12,7 +12,6 @@ function KakaoLoading() {
       sendKakaoAuthCode(code)
         .then((data) => {
           console.log(data);
-          // localStorage.setItem('token', data.token);
           navigate('/');
         })
         .catch((err) => {

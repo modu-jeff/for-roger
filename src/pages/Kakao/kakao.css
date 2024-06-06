@@ -24,22 +24,6 @@
   height: 80px;
 }
 
-.login-title {
-  margin-left: 150px;
-  margin-bottom: 20px;
-}
-
-.login-text {
-  margin-left: 150px;
-  margin-bottom: 20px;
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bolder;
-  &:last-child {
-    margin-bottom: 50px;
-  }
-}
-
 .background-image {
   position: absolute;
   top: 0;
