@@ -2,6 +2,7 @@ import { NAVER_AUTH_URL } from '@/OAuth';
 
 function NaverLogin() {
   const onNaverLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     window.open(NAVER_AUTH_URL, '_self');
   };
 

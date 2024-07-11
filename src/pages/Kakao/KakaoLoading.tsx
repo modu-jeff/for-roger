@@ -1,16 +1,19 @@
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { sendKakaoAuthCode } from '@/api/socialLogin';
 
 function KakaoLoading() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const code = new URLSearchParams(location.search).get('code');
+  const [searchParams] = useSearchParams();
+  const code = searchParams.get('code');
 
   useEffect(() => {
     if (code) {
       sendKakaoAuthCode(code)
         .then((data) => {
+          if (!data.ok) {
+            throw new Error(data.statusText);
+          }
           console.log(data);
           navigate('/');
         })

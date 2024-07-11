@@ -17,7 +17,7 @@ const routes: RouteObject[] = [
     element: <KakaoLoginPage />,
   },
   {
-    path: '/users/signin/kakao',
+    path: '/auth/kakao/callback',
     element: <KakaoLoading />,
   },
   {
@@ -25,7 +25,7 @@ const routes: RouteObject[] = [
     element: <NaverLogin />,
   },
   {
-    path: '/users/signin/naver',
+    path: '/auth/naver/callback',
     element: <NaverLoading />,
   },
 ];

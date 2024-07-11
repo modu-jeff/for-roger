@@ -3,6 +3,7 @@ import '@/pages/Kakao/kakao.css';
 
 function KakaoLoginPage() {
   const goToKakao = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     window.open(KAKAO_AUTH_URL, '_self');
   };
   return (
